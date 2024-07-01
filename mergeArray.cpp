@@ -1,5 +1,5 @@
 // #include <bits/stdc++.h> 
-// using namespace std;
+using namespace std;
 #include <vector>
 #include <stdio.h>
 #include <iostream>
@@ -13,7 +13,7 @@ public:
         // put nums2 into nums1 with non decreasing order
         int j = 0;
 
-        printf("size: %f size2: %f\n", m, n);
+        printf("size: %d, size2: %d\n", m, n);
 
         for (auto i: nums1)
             std::cout << i << ' ';
@@ -21,13 +21,16 @@ public:
         for (auto i: nums2)
             std::cout << i << ' ';
 
+        std::cout << endl;
+
         for(j; j < n; j++){
 
             for(int i = 0; i < m-n; i++){
-                printf("nums1: %f, nums2: %f\n", nums1[i], nums2[j]);
+                
 
                 if(nums1[i] > nums2[j]){
                     // pre-append nums2[j]
+                    printf("nums1: %d, nums2: %d\n", nums1[i], nums2[j]);
                     
                     nums1.insert(nums1.begin() + i, nums2[j]);
                 }
@@ -38,12 +41,17 @@ public:
 
 
 int main(){
-    std::vector<int> vector1 = {1,2,3,5};
-    std::vector<int> vector2 = {4,6,7};
+    vector<int> vector1{1,2,3,5};
+    vector<int> vector2{4,6,7};
 
     Solution *sol = new Solution();
 
-    sol->merge(vector1, vector1.size(), vector2, vector2.size());
+    int n = vector1.size();
+    int m = vector2.size();
+
+    printf("first size: %d, size2: %d\n", n, m);
+
+    sol->merge(vector1, vector1.size() + m, vector2, vector2.size());
 
     return 0;
 }
