@@ -2,6 +2,7 @@
 // using namespace std;
 #include <vector>
 #include <stdio.h>
+#include <iostream>
 // using std::vector<int> vector;
 
 class Solution {
@@ -12,10 +13,18 @@ public:
         // put nums2 into nums1 with non decreasing order
         int j = 0;
 
+        printf("size: %f size2: %f\n", m, n);
+
+        for (auto i: nums1)
+            std::cout << i << ' ';
+
+        for (auto i: nums2)
+            std::cout << i << ' ';
+
         for(j; j < n; j++){
 
             for(int i = 0; i < m-n; i++){
-                printf("nums1: %f, nums2: %f", nums1[i], nums2[j]);
+                printf("nums1: %f, nums2: %f\n", nums1[i], nums2[j]);
 
                 if(nums1[i] > nums2[j]){
                     // pre-append nums2[j]
