@@ -12,6 +12,7 @@ public:
         // sorted in decreasing order
         // put nums2 into nums1 with non decreasing order
         int j = 0;
+        int i = 0;
 
         printf("size: %d, size2: %d\n", m, n);
 
@@ -25,8 +26,8 @@ public:
 
         for(j; j < n; j++){
 
-            for(int i = 0; i < m-n; i++){
-                
+            for(i; i < m-n; i++){
+                printf("i: %d\n", i);
 
                 if(nums1[i] > nums2[j]){
                     // pre-append nums2[j]
@@ -35,6 +36,13 @@ public:
                     nums1.insert(nums1.begin() + i, nums2[j]);
                 }
             }
+
+            printf("ALL nums1: %d, nums2: %d\n", nums1[i], nums2[j]);
+
+            for (auto i: nums1)
+                std::cout << i << ' ';
+            std::cout << endl;
+            
         }
     }
 };
