@@ -19,29 +19,43 @@ public:
         for (auto i: nums1)
             std::cout << i << ' ';
 
+        std::cout << endl;
+
         for (auto i: nums2)
             std::cout << i << ' ';
 
         std::cout << endl;
 
-        for(j; j < n; j++){
+        // for(j; j < n; j++){
 
-            for(i; i < m-n; i++){
+            for(i; i < n; i++){
                 printf("i: %d\n", i);
 
-                if(nums1[i] > nums2[j]){
+                j = 0;
+
+                while(nums2[i] > nums1[j] && j <= n){
                     // pre-append nums2[j]
-                    printf("nums1: %d, nums2: %d\n", nums1[i], nums2[j]);
+                    printf("nums1: %d, nums2: %d\n", nums1[j], nums2[i]);
+
+                    if(nums2[i] < nums1[j+1] || j > m-n){
                     
-                    nums1.insert(nums1.begin() + i, nums2[j]);
+                        nums1.insert(nums1.begin() + j + 1, nums2[i]);
+
+                        break;
+                    }
+
+                    printf("ALL nums1: %d, nums2: %d\n", nums1[j], nums2[i]);
+
+                    for (auto u: nums1)
+                        std::cout << u << ' ';
+                    std::cout << endl;
+
+                    j += 1;
+
                 }
-            }
+            // }
 
-            printf("ALL nums1: %d, nums2: %d\n", nums1[i], nums2[j]);
-
-            for (auto i: nums1)
-                std::cout << i << ' ';
-            std::cout << endl;
+            
             
         }
     }
